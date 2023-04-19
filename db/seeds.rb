@@ -5,3 +5,24 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+puts "initiating db seed"
+Movie.destroy_all
+puts "databased cleared"
+101.times do |i|
+  if i != 0
+    url = "https://api.themoviedb.org/3/movie/top_rated?api_key=7c54ee7ee8de8d49e4fbcad0a135d7f3&page=#{i}"
+    request = URI.open(url).read
+    response = JSON.parse(request)
+    movie_list = response["results"]
+    movie_list.each do |movie|
+      new_movie = Movie.create(
+        title: movie["title"],
+        overview: movie["overview"],
+        poster_url: "https://image.tmdb.org/t/p/w500#{movie['poster_path']}",
+        rating: movie["vote_average"]
+      )
+      puts "movie #{new_movie.id} created "
+    end
+  end
+end
