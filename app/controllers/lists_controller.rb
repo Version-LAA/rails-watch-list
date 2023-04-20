@@ -16,6 +16,12 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find(params[:id])
+    @search = params["search"]
+    if @search.present?
+      @name = @search["title"]
+      @movies = Movie.where(name:@name)
+    end
+
   end
 
   private
