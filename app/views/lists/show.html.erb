@@ -1,2 +1,10 @@
 <%= render "shared/navbar"%>
 <h1><%=@list.name%></h1>
+
+<%=link_to "Bookmark a Movie",new_list_bookmark_path(@list)%>
+<div class="container">
+  <%= simple_form_for :search, url:list_path, method: "GET" do |f| %>
+    <%= f.input :title, placeholder: "Search for a movie" %>
+    <%= f.submit "Search", class: "btn btn-primary" %>
+  <% end %>
+</div>

@@ -16,12 +16,11 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find(params[:id])
-    @search = params["search"]
+    @search = params['search']
     if @search.present?
       @name = @search["title"]
-      @movies = Movie.where(name:@name)
+      @movies = Movie.where('title LIKE ?', @name)
     end
-
   end
 
   private
@@ -30,6 +29,7 @@ class ListsController < ApplicationController
     params.require(:list).permit(:name)
   end
 
-  def find_list
+  def search_params
+    params.require(:movie).permit(:title)
   end
 end
