@@ -1,0 +1,34 @@
+<%= render "shared/navbar"%>
+<h1>Bookmark Movies!</h1>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-sm-8 my-3">
+      <%= form_with url: new_list_bookmark_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Type a keyword"
+          %>
+        <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <%@movies.each do |movie|%>
+      <div class="col">
+        <div class="col-lg-3 card m-3" style="width: 15rem;">
+          <img src="<%=movie.poster_url%>" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title"><%=movie.title%></h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <%=link_to "Bookmark",new_list_bookmark_path(movie),class:"btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    <%end%>
+  </div>
+
+</div>

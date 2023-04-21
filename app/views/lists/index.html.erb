@@ -1,5 +1,6 @@
 <%= render "shared/navbar"%>
-<h1>List Page</h1>
+<%= render "banner"%>
+<h1>Your List</h1>
 
 <%@lists.each do |list|%>
   <p><%=link_to list.name,list_path(list)%></p>
