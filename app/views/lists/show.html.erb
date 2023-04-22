@@ -1,7 +1,20 @@
 <%= render "shared/navbar"%>
 <h1><%=@list.name%></h1>
 
-<div class="container"></div>
-<%=link_to "Add Movie",new_list_bookmark_path(@list),class:"btn btn-primary"%>
+<div class="container">
+  <%=link_to "Add Movie",new_list_bookmark_path(@list),class:"btn btn-primary"%>
 
-<%=@bookmarks.first.movie.title%>
+   <div class="row">
+    <%@bookmarks.each do |bookmark|%>
+      <div class="col">
+        <div class="col-lg-3 card m-3" style="width: 15rem;">
+          <img src="<%=bookmark.movie.poster_url%>" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title"><%=bookmark.movie.title%></h5>
+            <p class="card-text"><%=bookmark.comment%></p>
+          </div>
+        </div>
+      </div>
+    <%end%>
+  </div>
+</div>
