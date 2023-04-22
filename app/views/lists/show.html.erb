@@ -2,8 +2,11 @@
 <h1><%=@list.name%></h1>
 
 <div class="container">
-  <%=link_to "Add Movie",new_list_bookmark_path(@list),class:"btn btn-primary"%>
-
+  <%if @list.photo.attached?%>
+    <%=cl_image_tag @list.photo.key,height: 300, width: 300%>
+  <%end%>
+  <br>
+   <%=link_to "Add Movie",new_list_bookmark_path(@list),class:"btn btn-primary"%>
    <div class="row">
     <%@bookmarks.each do |bookmark|%>
       <div class="col">

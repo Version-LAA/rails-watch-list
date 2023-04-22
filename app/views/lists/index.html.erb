@@ -5,13 +5,12 @@
 <div class="row">
   <%@lists.each do |list|%>
     <div class="col">
-      <div class="card col-lg-3 m-3" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title"><%=list.name%></h5>
-          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <%=link_to "Review List",list_path(list)%>
-        </div>
+      <div class="card-category"
+        style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))"
+      >
+      <img class="card-img-top" src="..." alt="Card image cap">
+        <h5 class="card-title"><%=list.name%></h5>
+        <p><%=link_to "Review",list_path(list)%></p>
       </div>
     </div>
   <%end%>
