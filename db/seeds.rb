@@ -9,9 +9,9 @@
 puts "initiating db seed"
 Movie.destroy_all
 puts "databased cleared"
-101.times do |i|
+120.times do |i|
   if i != 0
-    url = "https://api.themoviedb.org/3/movie/top_rated?api_key=#{tmdb_key}&page=#{i}"
+    url = "https://api.themoviedb.org/3/movie/top_rated?api_key=#{TMDB_KEY}&page=#{i}"
     request = URI.open(url).read
     response = JSON.parse(request)
     movie_list = response["results"]
