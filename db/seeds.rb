@@ -8,6 +8,7 @@
 
 puts "initiating db seed"
 Movie.destroy_all
+
 puts "databased cleared"
 120.times do |i|
   if i != 0
