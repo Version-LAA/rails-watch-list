@@ -31,6 +31,6 @@ class ListsController < ApplicationController
   end
 
   def search_params
-    params.require(:movie).permit(:title)
+    params.require(:movie).permit(:title, :photo)
   end
 end

@@ -1,5 +1,6 @@
 <%= render "shared/navbar"%>
 <%= simple_form_for(@list) do |f| %>
   <%= f.input :name %>
+  <%= f.input :photo, label: 'Add List Photo', as: :file%>
   <%= f.submit %>
 <% end %>
