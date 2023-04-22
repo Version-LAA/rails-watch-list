@@ -2,6 +2,17 @@
 <%= render "banner"%>
 <h1>Your List</h1>
 
-<%@lists.each do |list|%>
-  <p><%=link_to list.name,list_path(list)%></p>
-<%end%>
+<div class="row">
+  <%@lists.each do |list|%>
+    <div class="col">
+      <div class="card col-lg-3 m-3" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title"><%=list.name%></h5>
+          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <%=link_to "Review List",list_path(list)%>
+        </div>
+      </div>
+    </div>
+  <%end%>
+</div>

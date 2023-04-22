@@ -11,7 +11,7 @@ Movie.destroy_all
 puts "databased cleared"
 101.times do |i|
   if i != 0
-    url = "https://api.themoviedb.org/3/movie/top_rated?api_key=7c54ee7ee8de8d49e4fbcad0a135d7f3&page=#{i}"
+    url = "https://api.themoviedb.org/3/movie/top_rated?api_key=#{tmdb_key}&page=#{i}"
     request = URI.open(url).read
     response = JSON.parse(request)
     movie_list = response["results"]

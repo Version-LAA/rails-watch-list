@@ -1,2 +1,10 @@
 <%= render "shared/navbar"%>
-<h1>Leave a Note</h1>
+<h1>Leave a comment!</h1>
+
+<div class="container">
+  <%= simple_form_for([@list, @bookmark]) do |f| %>
+    <%= f.association :movie %>
+    <%= f.input :comment %>
+    <%= f.submit %>
+  <% end %>
+</div>

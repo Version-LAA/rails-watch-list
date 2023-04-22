@@ -17,6 +17,7 @@ class ListsController < ApplicationController
   def show
     @list = List.find(params[:id])
     @search = params['search']
+    @bookmarks = Bookmark.all
     if @search.present?
       @name = @search["title"]
       @movies = Movie.where('title LIKE ?', @name)

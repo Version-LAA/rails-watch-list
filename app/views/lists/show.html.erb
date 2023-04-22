@@ -1,4 +1,7 @@
 <%= render "shared/navbar"%>
 <h1><%=@list.name%></h1>
 
-<%=link_to "Bookmark a Movie",list_bookmarks_path(@list),class:"btn btn-primary"%>
+<div class="container"></div>
+<%=link_to "Add Movie",new_list_bookmark_path(@list),class:"btn btn-primary"%>
+
+<%=@bookmarks.first.movie.title%>
