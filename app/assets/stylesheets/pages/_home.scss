@@ -3,6 +3,21 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
+
+}
+
+.card {
+  border-radius: 30px;
+}
+.card-text {
+  color:white;
+  position: relative;
+  top: 100px;
+  left: 100px;
+  text-decoration: none;
+  &:hover{
+    color:red;
+  }
 }
 
 // Smallest device
@@ -42,4 +57,5 @@
 
 .card-title {
   color:white;
+  text-decoration: none;
 }
