@@ -1,6 +1,10 @@
 <%= render "shared/navbar"%>
-<%= simple_form_for(@list) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :photo, label: 'Add List Photo', as: :file%>
-  <%= f.submit %>
-<% end %>
+
+<div class="container mt-4">
+  <h1>Create a New List</h1>
+  <%= simple_form_for(@list) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :photo, label: 'Add List Photo', as: :file%>
+    <%= f.submit "Create",class:"btn btn-danger btn-lg" %>
+  <% end %>
+</div>
