@@ -20,13 +20,30 @@
    <div class="row">
     <%@bookmarks.each do |bookmark|%>
       <div class="col">
-        <div class="col-lg-3 card m-3" style="width: 20rem;">
-          <img src="<%=bookmark.movie.poster_url%>" class="card-img-top" alt="...">
+        <div class="col-lg-3 card m-3"
+         style="width: 20rem;"
+         data-controller="movie-card">
+          <img src="<%=bookmark.movie.poster_url%>"
+            class="card-img-top"
+            data-action="click->movie-card#show_info"
+             alt="...">
           <div class="card-body">
             <h5 class="card-title show-card"><%=bookmark.movie.title%></h5>
-            <p class="card-text show-card"><%=bookmark.comment%></p>
+            <div class="description"
+            data-movie-card-target="description">
+              <p>Rating: <%=bookmark.movie.rating%></p>
+              <p><%=bookmark.movie.overview%></p>
+            </div>
+            <p class="card-text show-card">Comment: <%=bookmark.comment%></p>
+
           </div>
         </div>
+        <div id="overlay">
+          <div id="overlay-text">
+          </div>
+
+        </div>
+
       </div>
     <%end%>
   </div>
