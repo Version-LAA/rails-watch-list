@@ -8,8 +8,10 @@
     <%if @list.photo.attached?%>
       <%=cl_image_tag(@list.photo.key,
        height: 300,
-       width: 350,
-       radius:15)%>
+       width: 300,
+       radius:10,
+       crop: :fill,
+       aspect_ratio: "4:3")%>
     <%end%>
   </div>
   <div class="button-show">
